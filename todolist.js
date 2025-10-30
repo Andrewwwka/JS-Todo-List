@@ -9,8 +9,17 @@ function addTask(description) {
     };
     tasks.push(newTask);
 }
-
-
+function removeTask(id) {
+    tasks = tasks.filter(task => task.id !== id);
+}
+function toggleTaskCompletion(id) {
+    tasks = tasks.map(task => {
+        if (task.id === id) {
+            return {...task, completed: !task.completed};
+        }
+        return task;
+    });
+}
 function getTasks() {
     return tasks;
 }
